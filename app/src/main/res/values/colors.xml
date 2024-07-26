@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_blue">#0C0E10</color>
+    <color name="dark_blue_accent">#13151D</color>
+    <color name="dark_grey">#30333A</color>
+
+    <color name="white">#F5F5F5</color>
+    <color name="white_accent">#ECEBF4</color>
+    <color name="light_grey">#DEE2E6</color>
+
+    <color name="dark_green">#102222</color>
+    <color name="green">#01C25C</color>
+
+    <color name="dark_red">#221010</color>
+    <color name="red">#EF233C</color>
+
+    <color name="purple">#A937FF</color>
+    <color name="light_purple">#C77DFF</color>
+
+</resources>
