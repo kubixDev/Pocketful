@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home_icon"/>
+
+    <item
+        android:id="@+id/assets"
+        android:title="Assets"
+        android:icon="@drawable/ic_wallet_icon"/>
+
+    <item
+        android:id="@+id/goals"
+        android:title="Goals"
+        android:icon="@drawable/ic_goal_icon"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person_icon"/>
+</menu>
