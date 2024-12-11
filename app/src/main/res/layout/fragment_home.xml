@@ -8,16 +8,181 @@
     android:background="?attr/colorPrimary"
     tools:context=".activities.MainActivity">
 
-    <TextView
+    <!-- TOP MINI PROFILE LAYOUT -->
+    <LinearLayout
+        android:id="@+id/miniProfileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/balanceLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_15sdp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/avatarImageView"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:scaleType="centerCrop"
+                android:background="?attr/colorSecondaryVariant"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="?attr/colorOnPrimary"
+            android:text="First name"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_17sdp"
+            android:includeFontPadding="false">
+        </TextView>
+    </LinearLayout>
+
+
+    <!-- TOTAL BALANCE CARD LAYOUT -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/balanceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toBottomOf="@id/miniProfileLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="16dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background"
+            app:tint="#6F000000">
+        </ImageView>
+
+        <!-- semi-transparent 40% overlay with color #212529 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#40212529"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cardLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/balanceTextView"
+                android:paddingTop="@dimen/_20sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:textColor="@color/grey"
+                android:text="TOTAL BALANCE"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_15sdp"
+                android:includeFontPadding="false">
+            </TextView>
+
+            <TextView
+                android:id="@+id/balanceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cardLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:textColor="@color/white"
+                android:text="12,345.00 PLN"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/_25sdp"
+                android:includeFontPadding="false">
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/buttonScanOCR"-->
+<!--        android:layout_width="@dimen/_120sdp"-->
+<!--        android:layout_height="@dimen/_50sdp"-->
+<!--        android:layout_marginStart="@dimen/_25sdp"-->
+<!--        android:layout_marginEnd="@dimen/_25sdp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/balanceLayout"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:background="@drawable/rounded_background"-->
+<!--        android:backgroundTint="?attr/colorSecondaryVariant"-->
+<!--        android:text="Scan receipt"-->
+<!--        android:drawableLeft="@drawable/ic_sparkle_icon"-->
+<!--        android:paddingStart="@dimen/_20sdp"-->
+<!--        android:paddingEnd="@dimen/_20sdp"-->
+<!--        android:drawableTint="?attr/colorOnPrimary"-->
+<!--        android:includeFontPadding="false"-->
+<!--        android:textColor="?attr/colorOnPrimary"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:textSize="@dimen/_13sdp"-->
+<!--        style="@style/Widget.AppCompat.Button.Colored"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:stateListAnimator="@null">-->
+<!--    </androidx.appcompat.widget.AppCompatButton>-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonScanOCR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home page"
-        android:textColor="?attr/colorOnPrimary"
-        android:fontFamily="@font/bebasneue_regular"
-        android:textSize="@dimen/_40sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/balanceLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:text="Receipt scan"
+        android:includeFontPadding="false"
+        android:textColor="?attr/colorOnPrimary"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="@dimen/_13sdp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textAllCaps="false"
+        android:stateListAnimator="@null">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonEditBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/balanceLayout"
+        app:layout_constraintStart_toEndOf="@id/buttonScanOCR"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:text="Adjust funds"
+        android:includeFontPadding="false"
+        android:textColor="?attr/colorOnPrimary"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="@dimen/_13sdp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textAllCaps="false"
+        android:stateListAnimator="@null">
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
