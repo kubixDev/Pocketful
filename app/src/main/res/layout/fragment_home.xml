@@ -8,6 +8,21 @@
     android:background="?attr/colorPrimary"
     tools:context=".activities.MainActivity">
 
+
+    <!-- BACKDROP CARD -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_210sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/backdrop"
+        android:background="@drawable/rounded_bottom_corners"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop">
+    </ImageView>
+
+
     <!-- TOP MINI PROFILE LAYOUT -->
     <LinearLayout
         android:id="@+id/miniProfileLayout"
@@ -18,6 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="@dimen/_15sdp"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="horizontal"
         android:gravity="center">
 
@@ -117,48 +133,25 @@
     </androidx.cardview.widget.CardView>
 
 
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/buttonScanOCR"-->
-<!--        android:layout_width="@dimen/_120sdp"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        android:layout_marginStart="@dimen/_25sdp"-->
-<!--        android:layout_marginEnd="@dimen/_25sdp"-->
-<!--        android:layout_marginTop="@dimen/_15sdp"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/balanceLayout"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:background="@drawable/rounded_background"-->
-<!--        android:backgroundTint="?attr/colorSecondaryVariant"-->
-<!--        android:text="Scan receipt"-->
-<!--        android:drawableLeft="@drawable/ic_sparkle_icon"-->
-<!--        android:paddingStart="@dimen/_20sdp"-->
-<!--        android:paddingEnd="@dimen/_20sdp"-->
-<!--        android:drawableTint="?attr/colorOnPrimary"-->
-<!--        android:includeFontPadding="false"-->
-<!--        android:textColor="?attr/colorOnPrimary"-->
-<!--        android:fontFamily="@font/poppins_semibold"-->
-<!--        android:textSize="@dimen/_13sdp"-->
-<!--        style="@style/Widget.AppCompat.Button.Colored"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:stateListAnimator="@null">-->
-<!--    </androidx.appcompat.widget.AppCompatButton>-->
-
+    <!-- BALANCE ACTION BUTTONS -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonScanOCR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_13sdp"
+        android:padding="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toBottomOf="@id/balanceLayout"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonEditBalance"
         android:background="@drawable/rounded_background"
         android:backgroundTint="?attr/colorSecondaryVariant"
         android:text="Receipt scan"
         android:includeFontPadding="false"
         android:textColor="?attr/colorOnPrimary"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="@dimen/_13sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12sdp"
         style="@style/Widget.AppCompat.Button.Colored"
         android:textAllCaps="false"
         android:stateListAnimator="@null">
@@ -168,7 +161,7 @@
         android:id="@+id/buttonEditBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_13sdp"
+        android:padding="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toBottomOf="@id/balanceLayout"
@@ -178,11 +171,70 @@
         android:text="Adjust funds"
         android:includeFontPadding="false"
         android:textColor="?attr/colorOnPrimary"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="@dimen/_13sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_12sdp"
         style="@style/Widget.AppCompat.Button.Colored"
         android:textAllCaps="false"
         android:stateListAnimator="@null">
     </androidx.appcompat.widget.AppCompatButton>
 
+
+    <!-- OPERATIONS ACTIVITY -->
+    <LinearLayout
+        android:id="@+id/activityTopLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/buttonScanOCR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/operationsRecyclerView"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/activityTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            android:text="Recent activity"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_15sdp"
+            android:includeFontPadding="false"
+            android:layout_weight="1">
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonMoreActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="See more"
+            android:padding="0dp"
+            android:includeFontPadding="false"
+            android:textColor="?attr/colorOnSecondary"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_12sdp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textAllCaps="false">
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/operationsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activityTopLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/_10sdp"
+        android:scrollbarStyle="outsideOverlay"
+        android:hapticFeedbackEnabled="true">
+    </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
