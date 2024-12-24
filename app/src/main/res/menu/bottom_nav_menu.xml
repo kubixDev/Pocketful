@@ -14,9 +14,4 @@
         android:id="@+id/goals"
         android:title="Goals"
         android:icon="@drawable/ic_goal_icon"/>
-
-    <item
-        android:id="@+id/profile"
-        android:title="Profile"
-        android:icon="@drawable/ic_person_icon"/>
 </menu>

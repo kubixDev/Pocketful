@@ -3,8 +3,9 @@ package com.kubixdev.pocketful.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -12,7 +13,6 @@ import com.kubixdev.pocketful.R;
 import com.kubixdev.pocketful.fragments.AssetFragment;
 import com.kubixdev.pocketful.fragments.GoalFragment;
 import com.kubixdev.pocketful.fragments.HomeFragment;
-import com.kubixdev.pocketful.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
     BottomNavigationView bottomNavigationView;
@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     HomeFragment homeFragment = new HomeFragment();
     AssetFragment assetFragment = new AssetFragment();
     GoalFragment goalFragment = new GoalFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     // handles bottom navigation between fragments
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
                 getSupportFragmentManager()
@@ -64,13 +64,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, goalFragment)
-                        .commit();
-                return true;
-
-            case R.id.profile:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, profileFragment)
                         .commit();
                 return true;
         }
