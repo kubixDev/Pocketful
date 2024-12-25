@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_background"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:backgroundTint="?attr/colorPrimaryVariant"
+    android:gravity="center_vertical"
+    android:padding="@dimen/_15sdp">
+
+    <ImageView
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/ic_payment"
+        app2:tint="?attr/colorOnPrimary" />
+
+    <TextView
+        android:id="@+id/operationNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_15sdp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textColor="?attr/colorOnPrimary"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="OPERATION NAME" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_15sdp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="X,XX PLN" />
+</LinearLayout>
